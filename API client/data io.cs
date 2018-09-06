@@ -22,9 +22,22 @@ namespace TPKC.API
             
             if(n)
             {
-                
+                RunSQL(@"CREATE TABLE LOCAL(
+                ID INT PRIMARY KEY NOT NULL AUTOINCREMENT UNIQUE,
+                TITLE TEXT NOT NULL UNIQUE,
+                BODY TEXT NOT NULL UNIQUE,
+                AUTHERID INT NOT NULL
+                ");
+
             }
 
+        }
+
+        public void RunSQLQuery(string sql)
+        {
+            DB.Open();
+            //new SQLiteCommand(sql, DB).();
+            DB.Close();
         }
 
         public void RunSQL(string sql)
