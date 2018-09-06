@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{A0786B88-2ADB-4C21-ABE8-AA2D79766269}") = "API server", "API\API server.phpproj", "{7EE54B20-A521-4EDA-8537-5153F68A8BE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API client", "API client\API client.csproj", "{A28906D1-808C-4B98-BE44-3E2226F1725F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API client", "API client\API client.csproj", "{A28906D1-808C-4B98-BE44-3E2226F1725F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKC GUI", "TPKC GUI\PKC GUI.csproj", "{CDF5BE3E-06FE-45FA-9CC7-BE9D17BE8947}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +33,22 @@ Global
 		{A28906D1-808C-4B98-BE44-3E2226F1725F}.Debug|x86.Build.0 = Debug|x64
 		{A28906D1-808C-4B98-BE44-3E2226F1725F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{A28906D1-808C-4B98-BE44-3E2226F1725F}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{A28906D1-808C-4B98-BE44-3E2226F1725F}.Release|x64.ActiveCfg = Debug|x64
-		{A28906D1-808C-4B98-BE44-3E2226F1725F}.Release|x64.Build.0 = Debug|x64
+		{A28906D1-808C-4B98-BE44-3E2226F1725F}.Release|x64.ActiveCfg = Release|x64
+		{A28906D1-808C-4B98-BE44-3E2226F1725F}.Release|x64.Build.0 = Release|x64
 		{A28906D1-808C-4B98-BE44-3E2226F1725F}.Release|x86.ActiveCfg = Release|x86
 		{A28906D1-808C-4B98-BE44-3E2226F1725F}.Release|x86.Build.0 = Release|x86
+		{CDF5BE3E-06FE-45FA-9CC7-BE9D17BE8947}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{CDF5BE3E-06FE-45FA-9CC7-BE9D17BE8947}.Debug|Any CPU.Build.0 = Debug|x86
+		{CDF5BE3E-06FE-45FA-9CC7-BE9D17BE8947}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CDF5BE3E-06FE-45FA-9CC7-BE9D17BE8947}.Debug|x64.Build.0 = Debug|Any CPU
+		{CDF5BE3E-06FE-45FA-9CC7-BE9D17BE8947}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CDF5BE3E-06FE-45FA-9CC7-BE9D17BE8947}.Debug|x86.Build.0 = Debug|Any CPU
+		{CDF5BE3E-06FE-45FA-9CC7-BE9D17BE8947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDF5BE3E-06FE-45FA-9CC7-BE9D17BE8947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDF5BE3E-06FE-45FA-9CC7-BE9D17BE8947}.Release|x64.ActiveCfg = Release|Any CPU
+		{CDF5BE3E-06FE-45FA-9CC7-BE9D17BE8947}.Release|x64.Build.0 = Release|Any CPU
+		{CDF5BE3E-06FE-45FA-9CC7-BE9D17BE8947}.Release|x86.ActiveCfg = Release|Any CPU
+		{CDF5BE3E-06FE-45FA-9CC7-BE9D17BE8947}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
