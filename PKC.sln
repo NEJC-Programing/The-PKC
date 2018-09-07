@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKC GUI", "TPKC GUI\PKC GUI
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AD3CF4C0-9806-49A3-BEDC-5B2127A7AB9E}"
 	ProjectSection(SolutionItems) = preProject
-		API client\ToDo.md = API client\ToDo.md
+		todo.md = todo.md
 	EndProjectSection
 EndProject
 Global
