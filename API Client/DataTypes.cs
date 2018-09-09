@@ -4,7 +4,7 @@ namespace TPKC.API
 {
     struct Packed
     {
-        public DBEntry[] Data = null;
+        public DBEntry[] Data;
         public override string ToString()
         {
             return JsonConvert.SerializeObject(Data);
