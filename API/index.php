@@ -6,5 +6,6 @@ $data = json_decode($postdata);
 
 $cmd = $data->cmd;
 $api_ver = $data->ver;
+$data = $data->Data;
 
 
