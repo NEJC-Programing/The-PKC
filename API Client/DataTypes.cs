@@ -18,9 +18,9 @@ namespace TPKC
 {
     struct DBEntry
     {
-        public string Title;
-        public string Body;
-        public string Author;
+        public string Title; // text
+        public string Body; // html
+        public string Author; // text
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);

@@ -50,6 +50,7 @@ namespace TPKC_GUI
             try
             {
                 browser.LoadHtml(MarkDown.MD2HTML(fastColoredTextBox1.Text));
+                //MessageBox.Show(MarkDown.MD2HTML(fastColoredTextBox1.Text,""));
             }
             catch { }
         }
