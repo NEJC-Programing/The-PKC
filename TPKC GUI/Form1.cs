@@ -20,17 +20,22 @@ namespace TPKC_GUI
         public Form1()
         {
             InitializeComponent();
-            browser = new ChromiumWebBrowser();
-            browser.Anchor = (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom);
-            browser.Width = splitContainer1.Panel2.Width;
-            browser.Height = splitContainer1.Panel2.Height;
-            browser.Parent = splitContainer1.Panel2;
+            browser = new ChromiumWebBrowser("0.0.0.0")
+            {
+                Anchor = (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom),
+                Width = splitContainer1.Panel2.Width,
+                Height = splitContainer1.Panel2.Height,
+                Parent = splitContainer1.Panel2
+            };
             browser.Show();
-            fastColoredTextBox1 = new FastColoredTextBox();
-            fastColoredTextBox1.Anchor = (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom);
-            fastColoredTextBox1.Width = splitContainer1.Panel1.Width;
-            fastColoredTextBox1.Height = splitContainer1.Panel1.Height;
-            fastColoredTextBox1.Parent = splitContainer1.Panel1;
+
+            fastColoredTextBox1 = new FastColoredTextBox
+            {
+                Anchor = (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom),
+                Width = splitContainer1.Panel1.Width,
+                Height = splitContainer1.Panel1.Height,
+                Parent = splitContainer1.Panel1
+            };
             fastColoredTextBox1.TextChanged += FastColoredTextBox1_TextChanged;
             fastColoredTextBox1.Show();
         }
