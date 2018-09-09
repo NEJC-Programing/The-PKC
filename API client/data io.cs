@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
+﻿using System.Data.SQLite;
 using System.IO;
 
 namespace TPKC.API
@@ -18,9 +16,9 @@ namespace TPKC.API
                 n = true;
             }
 
-            DB = new SQLiteConnection(@"Data Source=" + DatabasePath + ";Version=3;");
-            
-            if(n)
+            DB = new SQLiteConnection("Data Source=" + DatabasePath + ";Version=3;");
+
+            if (n)
             {
                 RunSQL(@"CREATE TABLE LOCAL(
                 ID INT PRIMARY KEY NOT NULL AUTOINCREMENT UNIQUE,
@@ -47,4 +45,5 @@ namespace TPKC.API
             DB.Close();
         }
     }
+}
 }
