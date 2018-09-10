@@ -5,9 +5,12 @@ namespace TPKC_GUI
     class MarkDown
     {
         public static string MDCSS { get; set; } = Properties.Resources.DefualtMDCSS;
-        public static string MD2HTML(string MD)
+        public static string MD2HTML(string MD, bool pure = false)
         {
-            return "<style>"+MDCSS+ "</style><div id=\"MD\" class=\"markdown-body\">" + Markdown.ToHtml(MD)+"</div>";
+            if (pure)
+                return Markdown.ToHtml(MD);
+            else 
+                return "<style>"+MDCSS+ "</style><div id=\"MD\" class=\"markdown-body\">" + Markdown.ToHtml(MD)+"</div>";
         }
         public static string MD2HTML(string MD,string CSS)
         {
