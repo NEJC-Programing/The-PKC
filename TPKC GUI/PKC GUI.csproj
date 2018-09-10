@@ -67,6 +67,9 @@
       <HintPath>..\packages\FCTB.2.16.21.0\lib\FastColoredTextBox.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Griffin.Core, Version=1.0.42.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Griffin.Framework.1.0.42\lib\net45\Griffin.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Markdig, Version=0.15.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Markdig.0.15.2\lib\net40\Markdig.dll</HintPath>
     </Reference>
