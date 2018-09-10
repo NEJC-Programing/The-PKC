@@ -61,22 +61,11 @@ namespace TPKC_GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;link rel=&quot;stylesheet&quot; href=&quot;/path/to/styles/default.css&quot;&gt;
-        ///&lt;script src=&quot;/path/to/highlight.pack.js&quot;&gt;&lt;/script&gt;
-        ///&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;.
+        ///   Looks up a localized string similar to &lt;html&gt;&lt;head&gt;&lt;style&gt;.hljs{display:block;overflow-x:auto;padding:.5em;color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-keyword,.hljs-formula{color:#c678dd}.hljs-section,.hljs-name,.hljs-selector-tag,.hljs-deletion,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute,.hljs-meta-string{color:#98c379}.hljs-built_in,.hljs-class .hljs-title{color:#e6c07b}.hljs-attr,.hljs-variable,.hljs-template-va [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string DefualtCodeBlock {
+        internal static string PageHTML {
             get {
-                return ResourceManager.GetString("DefualtCodeBlock", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .markdown-body hr::after,.markdown-body::after{clear:both}@font-face{font-family:octicons-link;src:url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAAC [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string DefualtMDCSS {
-            get {
-                return ResourceManager.GetString("DefualtMDCSS", resourceCulture);
+                return ResourceManager.GetString("PageHTML", resourceCulture);
             }
         }
     }

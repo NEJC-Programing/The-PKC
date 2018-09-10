@@ -4,7 +4,7 @@ namespace TPKC_GUI
 {
     class MarkDown
     {
-        public static string MDCSS { get; set; } = Properties.Resources.DefualtMDCSS;
+        public static string MDCSS { get; set; } = "";
         public static string MD2HTML(string MD, bool pure = false)
         {
             if (pure)

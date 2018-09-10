@@ -17,6 +17,7 @@ namespace TPKC_GUI
     {
         ChromiumWebBrowser browser;
         FastColoredTextBox fastColoredTextBox1;
+
         public Form1()
         {
             InitializeComponent();
@@ -26,8 +27,14 @@ namespace TPKC_GUI
                 Width = splitContainer1.Panel2.Width,
                 Height = splitContainer1.Panel2.Height,
                 Parent = splitContainer1.Panel2
-            };
+            };            
             browser.Show();
+            browser.IsBrowserInitializedChanged += (sender, args) =>
+            {
+                if (args.IsBrowserInitialized)
+                    browser.LoadString(Properties.Resources.PageHTML, "0.0.0.0");
+            };
+            
 
             fastColoredTextBox1 = new FastColoredTextBox
             {
@@ -49,8 +56,8 @@ namespace TPKC_GUI
         {
             try
             {
-                browser.LoadHtml(MarkDown.MD2HTML(fastColoredTextBox1.Text));
-                
+                //browser.LoadHtml(MarkDown.MD2HTML(fastColoredTextBox1.Text));
+                browser.ExecuteScriptAsync("newmd(\""+Convert.ToBase64String(Encoding.UTF8.GetBytes(MarkDown.MD2HTML(fastColoredTextBox1.Text))) +"\");");
                 //MessageBox.Show(MarkDown.MD2HTML(fastColoredTextBox1.Text,""));
             }
             catch { }
