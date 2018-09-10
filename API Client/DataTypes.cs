@@ -5,7 +5,7 @@ namespace TPKC.API
     struct Packed
     {
         public int cmd;
-        public float ver;
+        public double ver;
         public DBEntry[] Data;
         public override string ToString()
         {

@@ -45,11 +45,12 @@ namespace TPKC_GUI
             
         }
 
-        private void FastColoredTextBox1_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
+        private void FastColoredTextBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
                 browser.LoadHtml(MarkDown.MD2HTML(fastColoredTextBox1.Text));
+                
                 //MessageBox.Show(MarkDown.MD2HTML(fastColoredTextBox1.Text,""));
             }
             catch { }
