@@ -33,8 +33,12 @@ namespace TPKC_GUI
             browser.IsBrowserInitializedChanged += (sender, args) =>
             {
                 if (args.IsBrowserInitialized)
+                {
                     //MessageBox.Show("load");
-                    browser.LoadHtml(Properties.Resources.PageHTML,true);
+                    browser.LoadHtml(Properties.Resources.PageHTML, true);
+                    browser.ShowDevTools();
+                }
+
             };
             browser.LoadingStateChanged += (sender, args) =>
             {
@@ -52,6 +56,8 @@ namespace TPKC_GUI
             };
             fastColoredTextBox1.TextChanged += FastColoredTextBox1_TextChanged;
             fastColoredTextBox1.Show();
+
+            
         }
 
         private void splittermoveing(object sender, SplitterCancelEventArgs e)
@@ -68,7 +74,8 @@ namespace TPKC_GUI
                 //MessageBox.Show(data);
                 //browser.ExecuteScriptAsync("newmd(\""+data+"\");");
                 if (runjs)
-                   browser.ExecuteScriptAsync("alert('1');document.getElementById'MD').innerHTML = Base64.decode('"+data+"');");
+                   browser.ExecuteScriptAsync("document.getElementById('MD').innerHTML = atob('" + data+ "');");
+                
                 //MessageBox.Show(MarkDown.MD2HTML(fastColoredTextBox1.Text,""));
             }
             catch { }
