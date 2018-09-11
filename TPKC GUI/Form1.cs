@@ -17,6 +17,7 @@ namespace TPKC_GUI
     {
         ChromiumWebBrowser browser;
         FastColoredTextBox fastColoredTextBox1;
+        bool runjs = false;
 
         public Form1()
         {
@@ -32,9 +33,15 @@ namespace TPKC_GUI
             browser.IsBrowserInitializedChanged += (sender, args) =>
             {
                 if (args.IsBrowserInitialized)
-                    browser.LoadString(Properties.Resources.PageHTML, "0.0.0.0");
+                    //MessageBox.Show("load");
+                    browser.LoadHtml(Properties.Resources.PageHTML,true);
             };
-            
+            browser.LoadingStateChanged += (sender, args) =>
+            {
+                runjs = !args.IsLoading;
+            };
+
+
 
             fastColoredTextBox1 = new FastColoredTextBox
             {
@@ -57,7 +64,11 @@ namespace TPKC_GUI
             try
             {
                 //browser.LoadHtml(MarkDown.MD2HTML(fastColoredTextBox1.Text));
-                browser.ExecuteScriptAsync("newmd(\""+Convert.ToBase64String(Encoding.UTF8.GetBytes(MarkDown.MD2HTML(fastColoredTextBox1.Text))) +"\");");
+                string data = Convert.ToBase64String(Encoding.UTF8.GetBytes(MarkDown.MD2HTML(fastColoredTextBox1.Text, true)));
+                //MessageBox.Show(data);
+                //browser.ExecuteScriptAsync("newmd(\""+data+"\");");
+                if (runjs)
+                   browser.ExecuteScriptAsync("alert('1');document.getElementById'MD').innerHTML = Base64.decode('"+data+"');");
                 //MessageBox.Show(MarkDown.MD2HTML(fastColoredTextBox1.Text,""));
             }
             catch { }
