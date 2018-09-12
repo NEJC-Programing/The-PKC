@@ -30,13 +30,14 @@ namespace TPKC_GUI
                 Parent = splitContainer1.Panel2
             };            
             browser.Show();
+            KeyPreview = true;
             browser.IsBrowserInitializedChanged += (sender, args) =>
             {
                 if (args.IsBrowserInitialized)
                 {
                     //MessageBox.Show("load");
-                    browser.LoadHtml(Properties.Resources.PageHTML, true);
-                    browser.ShowDevTools();
+                    browser.LoadHtml(Properties.Resources.LoadPage, true);
+                    //browser.ShowDevTools();
                 }
 
             };
@@ -64,7 +65,7 @@ namespace TPKC_GUI
         {
             
         }
-
+        bool not_init = true;
         private void FastColoredTextBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
@@ -73,12 +74,24 @@ namespace TPKC_GUI
                 string data = Convert.ToBase64String(Encoding.UTF8.GetBytes(MarkDown.MD2HTML(fastColoredTextBox1.Text, true)));
                 //MessageBox.Show(data);
                 //browser.ExecuteScriptAsync("newmd(\""+data+"\");");
+                if (runjs && not_init)
+                {
+                    not_init = false;
+                    browser.ExecuteScriptAsync(Properties.Resources.jquery_3_3_1_min);
+                    browser.ExecuteScriptAsync(Properties.Resources.highlight_pack);
+                }
                 if (runjs)
-                   browser.ExecuteScriptAsync("document.getElementById('MD').innerHTML = atob('" + data+ "');");
+                   browser.ExecuteScriptAsync("newmd('" + data+ "');");
                 
                 //MessageBox.Show(MarkDown.MD2HTML(fastColoredTextBox1.Text,""));
             }
             catch { }
+        }
+
+        private void Form1_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F12)
+                browser.ShowDevTools();
         }
     }
 }

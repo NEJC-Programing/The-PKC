@@ -61,11 +61,33 @@ namespace TPKC_GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;html&gt;&lt;head&gt; &lt;style&gt;.hljs{display:block;overflow-x:auto;padding:.5em;color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-keyword,.hljs-formula{color:#c678dd}.hljs-section,.hljs-name,.hljs-selector-tag,.hljs-deletion,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute,.hljs-meta-string{color:#98c379}.hljs-built_in,.hljs-class .hljs-title{color:#e6c07b}.hljs-attr,.hljs-variable,.hljs-template-v [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to /*! highlight.js v9.12.0 | BSD3 License | git.io/hljslicense */
+        ///!function(e){var n=&quot;object&quot;==typeof window&amp;&amp;window||&quot;object&quot;==typeof self&amp;&amp;self;&quot;undefined&quot;!=typeof exports?e(exports):n&amp;&amp;(n.hljs=e({}),&quot;function&quot;==typeof define&amp;&amp;define.amd&amp;&amp;define([],function(){return n.hljs}))}(function(e){function n(e){return e.replace(/&amp;/g,&quot;&amp;amp;&quot;).replace(/&lt;/g,&quot;&amp;lt;&quot;).replace(/&gt;/g,&quot;&amp;gt;&quot;)}function t(e){return e.nodeName.toLowerCase()}function r(e,n){var t=e&amp;&amp;e.exec(n);return t&amp;&amp;0===t.index}function a(e){return k.test(e)}f [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string PageHTML {
+        internal static string highlight_pack {
             get {
-                return ResourceManager.GetString("PageHTML", resourceCulture);
+                return ResourceManager.GetString("highlight_pack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /*! jQuery v3.3.1 | (c) JS Foundation and other contributors | jquery.org/license */
+        ///!function(e,t){&quot;use strict&quot;;&quot;object&quot;==typeof module&amp;&amp;&quot;object&quot;==typeof module.exports?module.exports=e.document?t(e,!0):function(e){if(!e.document)throw new Error(&quot;jQuery requires a window with a document&quot;);return t(e)}:t(e)}(&quot;undefined&quot;!=typeof window?window:this,function(e,t){&quot;use strict&quot;;var n=[],r=e.document,i=Object.getPrototypeOf,o=n.slice,a=n.concat,s=n.push,u=n.indexOf,l={},c=l.toString,f=l.hasOwnProperty,p=f.toStrin [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string jquery_3_3_1_min {
+            get {
+                return ResourceManager.GetString("jquery_3_3_1_min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;script src=&quot;data:application/javascript;charset=utf-8;base64,LyohIGpRdWVyeSB2My4zLjEgfCAoYykgSlMgRm91bmRhdGlvbiBhbmQgb3RoZXIgY29udHJpYnV0b3JzIHwganF1ZXJ5Lm9yZy9saWNlbnNlICovCiFmdW5jdGlvbihlLHQpeyJ1c2Ugc3RyaWN0Ijsib2JqZWN0Ij09dHlwZW9mIG1vZHVsZSYmIm9iamVjdCI9PXR5cGVvZiBtb2R1bGUuZXhwb3J0cz9tb2R1bGUuZXhwb3J0cz1lLmRvY3VtZW50P3QoZSwhMCk6ZnVuY3Rpb24oZSl7aWYoIWUuZG9jdW1lbnQpdGhyb3cgbmV3IEVycm9yKCJqUXVlcnkgcmVxdWlyZXMgYSB3aW5kb3cgd2l0aCBhIGRvY3VtZW50Iik7cmV0dXJuIHQoZSl9OnQoZSl9KCJ1bmRlZmluZWQiIT [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string LoadPage {
+            get {
+                return ResourceManager.GetString("LoadPage", resourceCulture);
             }
         }
     }
