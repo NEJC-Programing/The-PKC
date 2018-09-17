@@ -127,4 +127,7 @@
   <data name="LoadPage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\loadpage.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="gapi" xml:space="preserve">
+    <value>{"installed":{"client_id":"468096210537-e74tgbuhh8f04849epg2jputfa3jov2g.apps.googleusercontent.com","project_id":"the-pkc-1537138156128","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://www.googleapis.com/oauth2/v3/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"daX_xfJi-1kA2RVwM4teMN46","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","http://localhost"]}}</value>
+  </data>
 </root>

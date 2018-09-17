@@ -61,6 +61,15 @@ namespace TPKC_GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {&quot;installed&quot;:{&quot;client_id&quot;:&quot;468096210537-e74tgbuhh8f04849epg2jputfa3jov2g.apps.googleusercontent.com&quot;,&quot;project_id&quot;:&quot;the-pkc-1537138156128&quot;,&quot;auth_uri&quot;:&quot;https://accounts.google.com/o/oauth2/auth&quot;,&quot;token_uri&quot;:&quot;https://www.googleapis.com/oauth2/v3/token&quot;,&quot;auth_provider_x509_cert_url&quot;:&quot;https://www.googleapis.com/oauth2/v1/certs&quot;,&quot;client_secret&quot;:&quot;daX_xfJi-1kA2RVwM4teMN46&quot;,&quot;redirect_uris&quot;:[&quot;urn:ietf:wg:oauth:2.0:oob&quot;,&quot;http://localhost&quot;]}}.
+        /// </summary>
+        internal static string gapi {
+            get {
+                return ResourceManager.GetString("gapi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /*! highlight.js v9.12.0 | BSD3 License | git.io/hljslicense */
         ///!function(e){var n=&quot;object&quot;==typeof window&amp;&amp;window||&quot;object&quot;==typeof self&amp;&amp;self;&quot;undefined&quot;!=typeof exports?e(exports):n&amp;&amp;(n.hljs=e({}),&quot;function&quot;==typeof define&amp;&amp;define.amd&amp;&amp;define([],function(){return n.hljs}))}(function(e){function n(e){return e.replace(/&amp;/g,&quot;&amp;amp;&quot;).replace(/&lt;/g,&quot;&amp;lt;&quot;).replace(/&gt;/g,&quot;&amp;gt;&quot;)}function t(e){return e.nodeName.toLowerCase()}function r(e,n){var t=e&amp;&amp;e.exec(n);return t&amp;&amp;0===t.index}function a(e){return k.test(e)}f [rest of string was truncated]&quot;;.
         /// </summary>
@@ -83,7 +92,31 @@ namespace TPKC_GUI.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;html&gt;
         ///&lt;head&gt;
-        ///    &lt;script src=&quot;data:application/javascript;charset=utf-8;base64,LyohIGpRdWVyeSB2My4zLjEgfCAoYykgSlMgRm91bmRhdGlvbiBhbmQgb3RoZXIgY29udHJpYnV0b3JzIHwganF1ZXJ5Lm9yZy9saWNlbnNlICovCiFmdW5jdGlvbihlLHQpeyJ1c2Ugc3RyaWN0Ijsib2JqZWN0Ij09dHlwZW9mIG1vZHVsZSYmIm9iamVjdCI9PXR5cGVvZiBtb2R1bGUuZXhwb3J0cz9tb2R1bGUuZXhwb3J0cz1lLmRvY3VtZW50P3QoZSwhMCk6ZnVuY3Rpb24oZSl7aWYoIWUuZG9jdW1lbnQpdGhyb3cgbmV3IEVycm9yKCJqUXVlcnkgcmVxdWlyZXMgYSB3aW5kb3cgd2l0aCBhIGRvY3VtZW50Iik7cmV0dXJuIHQoZSl9OnQoZSl9KCJ1bmRlZmluZWQiIT [rest of string was truncated]&quot;;.
+        ///    &lt;style&gt;
+        ///
+        ///        .hljs {
+        ///            display: block;
+        ///            overflow-x: auto;
+        ///            padding: 0.5em;
+        ///            color: #383a42;
+        ///            background: #fafafa;
+        ///        }
+        ///
+        ///        .hljs-comment,
+        ///        .hljs-quote {
+        ///            color: #a0a1a7;
+        ///            font-style: italic;
+        ///        }
+        ///
+        ///        .hljs-doctag,
+        ///        .hljs-keyword,
+        ///        .hljs-formula {
+        ///            color: #a626a4;
+        ///        }
+        ///
+        ///        .hljs-section,
+        ///        .hljs-name,
+        ///        .hljs-sele [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string LoadPage {
             get {

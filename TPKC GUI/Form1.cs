@@ -17,10 +17,11 @@ namespace TPKC_GUI
     {
         ChromiumWebBrowser browser;
         FastColoredTextBox fastColoredTextBox1;
+        
         bool runjs = false;
 
         public Form1()
-        {
+        {   
             InitializeComponent();
             browser = new ChromiumWebBrowser("0.0.0.0")
             {
@@ -92,6 +93,8 @@ namespace TPKC_GUI
         {
             if (e.KeyCode == Keys.F12)
                 browser.ShowDevTools();
+            if (e.KeyCode == Keys.F11)
+                new TPKC.APIs.Gmail();
         }
     }
 }
