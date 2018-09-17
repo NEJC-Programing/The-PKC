@@ -137,10 +137,29 @@ namespace TPKC
                 XAttribute attr = Suggestions.Root.Element("CompleteSuggestion").Element("suggestion").Attribute("data");
                 return attr.Value;
             }
-            public static string[] Suggest(string word)
+
+            public static List<string> Suggest(string word)
             {
-                string xml = new System.Net.WebClient().DownloadString("https://www.google.com/complete/search?output=toolbar&q=" + word);
-                // convert xml to json
+                try
+                {
+                    string url = Uri.EscapeUriString("https://www.google.com/complete/search?output=toolbar&q=" + word);
+                
+                    string xml = new System.Net.WebClient().DownloadString(url);
+                    System.Xml.XmlDocument document = new System.Xml.XmlDocument();
+                    document.LoadXml(xml);
+
+                    string json = JsonConvert.SerializeXmlNode(document);
+
+                    TextJSON.RootObject sugestions = JsonConvert.DeserializeObject<TextJSON.RootObject>(json);
+
+                    List<string> data = new List<string>();
+                    foreach (var item in sugestions.toplevel.CompleteSuggestion)
+                        data.Add(item.suggestion.__invalid_name__data);
+
+                    return data;
+                }
+                catch { }
+                return null;
             }
         }
     }

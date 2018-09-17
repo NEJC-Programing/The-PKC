@@ -5,12 +5,15 @@ using CefSharp.WinForms;
 using CefSharp;
 using FastColoredTextBoxNS;
 
+
 namespace TPKC_GUI
 {
     public partial class Form1 : Form
     {
         ChromiumWebBrowser browser;
         FastColoredTextBox fastColoredTextBox1;
+        AutocompleteMenu autocomplete;
+        System.Timers.Timer timer;
         
         bool runjs = false;
 
@@ -40,7 +43,7 @@ namespace TPKC_GUI
             {
                 runjs = !args.IsLoading;
             };
-
+            
 
 
             fastColoredTextBox1 = new FastColoredTextBox
@@ -51,9 +54,34 @@ namespace TPKC_GUI
                 Parent = splitContainer1.Panel1
             };
             fastColoredTextBox1.TextChanged += FastColoredTextBox1_TextChanged;
+            //fastColoredTextBox1.KeyDown += fctb_KeyDown;
+
+            autocomplete = new AutocompleteMenu(fastColoredTextBox1);
+            autocomplete.Items.MaximumSize = new System.Drawing.Size(200, 300);
+            autocomplete.Items.Width = 200;
+
             fastColoredTextBox1.Show();
 
-            
+            timer = new System.Timers.Timer(10000)
+            {
+                AutoReset = true,
+                Enabled = true
+            };
+            timer.Elapsed += Timer_Elapsed;
+        }
+
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            try
+            {
+                autocomplete.Items.SetAutocompleteItems(TPKC.APIs.Text.Suggest(fastColoredTextBox1.Text));
+            }
+            catch { }
+            MethodInvoker mi = new MethodInvoker(() => autocomplete.Show(true) );
+
+            if (autocomplete.InvokeRequired)
+                autocomplete.Invoke(mi);
+            else mi.Invoke();
         }
 
         private void splittermoveing(object sender, SplitterCancelEventArgs e)
@@ -77,8 +105,10 @@ namespace TPKC_GUI
                 }
                 if (runjs)
                    browser.ExecuteScriptAsync("newmd('" + data+ "');");
-                
+
                 //MessageBox.Show(MarkDown.MD2HTML(fastColoredTextBox1.Text,""));
+
+                
             }
             catch { }
         }
@@ -88,8 +118,23 @@ namespace TPKC_GUI
             if (e.KeyCode == Keys.F12)
                 browser.ShowDevTools();
 
-            if (e.KeyCode == Keys.F11)
-                new TPKC.APIs.Gmail();
+
+        }
+
+        private void fctb_KeyDown(object sender, KeyEventArgs e)
+        {
+            timer.Stop();
+            timer.Start();
+            if (e.KeyData == (Keys.Control | Keys.K))
+            {
+                try
+                {
+                    autocomplete.Items.SetAutocompleteItems(TPKC.APIs.Text.Suggest(fastColoredTextBox1.Text));
+                    autocomplete.Show(true);
+                    e.Handled = true;
+                }
+                catch { }
+            }
         }
     }
 }
