@@ -62,7 +62,7 @@ namespace TPKC_GUI
 
             fastColoredTextBox1.Show();
 
-            timer = new System.Timers.Timer(10000)
+            timer = new System.Timers.Timer(2000)
             {
                 AutoReset = true,
                 Enabled = true
