@@ -8,4 +8,10 @@
     > ### the browers is cefsharp
     > ### use any spell check lib perfuribly a google one
 * api lib
+	 1. make the local database work with new docs [ ]
+	 2. make a sync function [ ]
+	 3. make it work with the server [ ]
+	 4. allow to work on private db [ ]
 * Server
+	1. make the sync function [ ]
+	2. allow to add docs to public db [ ]

@@ -78,10 +78,10 @@ namespace TPKC_GUI
             }
             catch { }
             MethodInvoker mi = new MethodInvoker(() => autocomplete.Show(true) );
-
+            /*
             if (autocomplete.InvokeRequired)
                 autocomplete.Invoke(mi);
-            else mi.Invoke();
+            else mi.Invoke();//*/
         }
 
         private void splittermoveing(object sender, SplitterCancelEventArgs e)
