@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="data io.cs" />
     <Compile Include="DataTypes.cs" />
+    <Compile Include="Docs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="server.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
