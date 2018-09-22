@@ -8,11 +8,9 @@ namespace TPKC.API
 {
     class Docs
     {
-        public string Title { get; set; }
-        public string Body { get; set; }
-        public string Author { get; set; }
+        public static void Save(DBEntry doc)
+        {
 
-
-
+        }
     }
 }
