@@ -24,15 +24,21 @@ namespace TPKC
     
     struct DBEntry
     {
-        public DBEntry(string DocTitle, string DocBody, string DocAuthor)
+        public DBEntry(string DocTitle, string DocBody, string DocAuthor, int DocID = 0)
         {
+            ID = DocID;
             Title = DocTitle;
             Body = DocBody;
             Author = DocAuthor;
         }
-        public string Title { get; private set; } // text
-        public string Body { get; private set; } // html
-        public string Author { get; private set; } // text
+        public DBEntry(string JSON)
+        {
+            this = JsonConvert.DeserializeObject<DBEntry>(JSON);
+        }
+        public int ID { get; private set; } // the id
+        public string Title { get; set; } // text
+        public string Body { get; set; } // html
+        public string Author { get; set; } // text
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);

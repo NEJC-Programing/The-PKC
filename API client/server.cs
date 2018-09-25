@@ -5,7 +5,7 @@ namespace TPKC.API
 {
     class Server
     {
-        public string ServerAddress;
+        public string ServerAddress { get; }
 
         public Server(string address)
         {
