@@ -12,15 +12,15 @@ namespace TPKC.API
         {
             AddtoBD(doc);
         }
-        public static void Save(string doc)
+        public static void Save(string JSONdoc)
         {
-            Save(new DBEntry(doc));
+            Save(new DBEntry(JSONdoc));
         }
         static DataIO db = new DataIO("local.db");
 
         static Server server = new Server("https://localhost");
 
-        private static void AddtoBD(DBEntry doc)
+        public static void AddtoBD(DBEntry doc)
         {
             db.AddDBentry(doc);
         }
@@ -32,9 +32,37 @@ namespace TPKC.API
             packed.VER = 0;
             packed.CMD = Commands.Write;
 
-            packed.Data = DBEntries.ToArray();
+            List<int> docsWeHave = new List<int>();
+            List<DBEntry> changeddocs = new List<DBEntry>();
+
+            foreach (DBEntry entry in DBEntries)
+            {
+                docsWeHave.Add(entry.ID);
+                if (entry.Changed)
+                    changeddocs.Add(entry);
+            }
+
+            packed.Data = changeddocs.ToArray();
+            packed.DOCS = docsWeHave.ToArray();
 
             string data = server.SendJSON(packed.ToString());
+
+            packed = new Packed(data);
+
+            foreach (DBEntry entry in packed.Data)
+            {
+                bool save = true;
+                foreach (DBEntry intent in DBEntries)
+                {
+                    if (entry.Equals(intent))
+                    {
+                        save = false;
+                        break;
+                    }
+                }
+                if (save)
+                    AddtoBD(entry);
+            }
         }
     }
 }
