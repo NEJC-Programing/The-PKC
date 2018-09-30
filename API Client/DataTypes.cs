@@ -1,20 +1,32 @@
 ﻿using Newtonsoft.Json;
+using TPKC.API;
 
 namespace TPKC.API
 {
+    /// <summary>
+    /// The Commands for packed
+    /// </summary>
     enum Commands
     {
         Read,
-        Write
+        Write,
+        Check
     }
+    /// <summary>
+    /// The Packed Data Type
+    /// </summary>
     struct Packed
     {
 
         public Commands CMD { get; set; }
         public double VER { get; set; }
         public DBEntry[] Data { get; set; }
+        public DBEntry Data { get; set; }
         public int[] DOCS { get; set; }
-        
+        public int DOCS { get; set; }
+        public bool[] CheckResponce { get; }
+        public bool CheckResponce { get; }
+
         /// <summary>
         /// Loads Packed from json that came from server
         /// </summary>
@@ -37,7 +49,9 @@ namespace TPKC.API
 
 namespace TPKC
 {
-    
+    /// <summary>
+    /// The DBEntry Doc Type
+    /// </summary>
     struct DBEntry
     {
         public DBEntry(string DocTitle, string DocBody, string DocAuthor, int DocID = 0)
@@ -62,17 +76,54 @@ namespace TPKC
             return 0;
         }
 
-        public int ID { get; private set; } // the id
+        int e_id = 0;
+
+        public int ID {
+            get {
+                if (e_id > 0)
+                    return e_id;
+                else
+                {
+                    e_id = GetNextID();
+                    return e_id;
+                }
+            }
+            private set
+            {
+                if (value > 0)
+                    e_id = value;
+            }
+        } // the id
+
         public string Title { get; set; } // text
         public string Body { get; set; } // html
         public string Author { get; set; } // text
 
-        public bool Changed { get { return false; } } // cheks agents server if the docs are the same
+        public bool Changed
+        {
+            get
+            {
+                Packed packed = new Packed
+                {
+                    CMD = Commands.Check,
+                    VER = 0,
+                    Data = this,
+                    DOCS = ID
+                };
+                return new Packed(new Server("http://localhost/").SendJSON(packed.ToString())).CheckResponce;
+            }
+        } // cheks agents server if the docs are the same
 
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);
         }
+
+        /// <summary>
+        /// Checks if This Object is Equal to obj
+        /// </summary>
+        /// <param name="obj">the object to check</param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj == null || GetType() != obj.GetType())

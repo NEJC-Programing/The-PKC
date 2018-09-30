@@ -28,9 +28,11 @@ namespace TPKC.API
 
         public static void Sync()
         {
-            Packed packed = new Packed();
-            packed.VER = 0;
-            packed.CMD = Commands.Write;
+            Packed packed = new Packed
+            {
+                VER = 0,
+                CMD = Commands.Write
+            };
 
             List<int> docsWeHave = new List<int>();
             List<DBEntry> changeddocs = new List<DBEntry>();
