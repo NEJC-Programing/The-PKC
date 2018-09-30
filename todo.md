@@ -6,7 +6,7 @@
 	4. add title bar ubuve the text box
     5. make it work with backedn lib [ ]
 		a. ctrl + s needs to save curent doc
-		b. ctrl + shift + s needs to call sync function
+		b. ctrl + shift + s needs to call the sync function
 		c. if trys to close unsaved doc prompt
 		d. ctrl + n makes a new doc
 	6. make setting menu where you chose your name for the auther section on the doc
@@ -23,4 +23,3 @@
 
 * Server
 	1. make the sync function [ ]
-	2. allow to add docs to public db [ ]
