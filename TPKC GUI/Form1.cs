@@ -117,6 +117,18 @@ namespace TPKC_GUI
         {
             if (e.KeyCode == Keys.F12)
                 browser.ShowDevTools();
+            if (e.KeyCode == (Keys.S | Keys.LShiftKey | Keys.Control))
+            {
+
+            }
+            if (e.KeyCode == (Keys.S | Keys.Control))
+            {
+
+            }
+            if (e.KeyCode == (Keys.N | Keys.Control))
+            {
+
+            }
 
 
         }
