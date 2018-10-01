@@ -23,7 +23,7 @@ namespace TPKC.API
             if (n)
             {
                 RunSQL(@"CREATE TABLE LOCAL(
-                ID INT PRIMARY KEY NOT NULL AUTOINCREMENT UNIQUE,
+                ID INT PRIMARY KEY NOT NULL UNIQUE,
                 TITLE TEXT NOT NULL UNIQUE,
                 BODY TEXT NOT NULL UNIQUE,
                 AUTHER TEXT NOT NULL
@@ -47,23 +47,42 @@ namespace TPKC.API
             DB.Close();
         }
 
+        /// <summary>
+        /// add entry to the database
+        /// </summary>
+        /// <param name="entry">the entry to add</param>
         public void AddDBentry(DBEntry entry)
         {
-            //RunSQL(@"INSERT INTO LOCAL(TITLE, BODY, AUTHERID) VALUES('','','')");
             DB.Open();
             SQLiteCommand cmd = DB.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = @"INSERT INTO LOCAL(TITLE, BODY, AUTHER) VALUES(@Title,@Body,@Auther)";
-            cmd.Parameters.Add(new SQLiteParameter("@Title", entry.Title));
-            cmd.Parameters.Add(new SQLiteParameter("@Body", entry.Body));
-            cmd.Parameters.Add(new SQLiteParameter("@Auther", entry.Author));
+
+            // check if id is in db if yes then update do not add
+            if (DBEntries.Contains(entry))
+            {
+                cmd.CommandText = "UPDATE LOCAL SET TITLE = @Title, BODY = @Body, AUTHER = @Auther WHERE ID = @id";
+                cmd.Parameters.Add(new SQLiteParameter("@Title", entry.Title));
+                cmd.Parameters.Add(new SQLiteParameter("@Body", entry.Body));
+                cmd.Parameters.Add(new SQLiteParameter("@Auther", entry.Author));
+                cmd.Parameters.Add(new SQLiteParameter("@id", entry.ID));
+            }
+            else
+            {
+                cmd.CommandText = @"INSERT INTO LOCAL(ID, TITLE, BODY, AUTHER) VALUES(@id, @Title, @Body, @Auther)";
+                cmd.Parameters.Add(new SQLiteParameter("@Title", entry.Title));
+                cmd.Parameters.Add(new SQLiteParameter("@Body", entry.Body));
+                cmd.Parameters.Add(new SQLiteParameter("@Auther", entry.Author));
+                cmd.Parameters.Add(new SQLiteParameter("@id", entry.ID));
+            }
+
             SQLiteDataReader reader = cmd.ExecuteReader();
             DB.Close();
             reader.Close();
         }
 
         public List<DBEntry> DBEntries {
-            get {
+            get
+            {
                 DB.Open();
                 SQLiteCommand cmd = DB.CreateCommand();
                 cmd.CommandType = CommandType.Text;

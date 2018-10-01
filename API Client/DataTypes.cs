@@ -21,11 +21,11 @@ namespace TPKC.API
         public Commands CMD { get; set; }
         public double VER { get; set; }
         public DBEntry[] Data { get; set; }
-        public DBEntry Data { get; set; }
+        public DBEntry Data_s { get; set; }
         public int[] DOCS { get; set; }
-        public int DOCS { get; set; }
+        public int DOCS_s { get; set; }
         public bool[] CheckResponce { get; }
-        public bool CheckResponce { get; }
+        public bool CheckResponce_s { get; }
 
         /// <summary>
         /// Loads Packed from json that came from server
@@ -52,7 +52,7 @@ namespace TPKC
     /// <summary>
     /// The DBEntry Doc Type
     /// </summary>
-    struct DBEntry
+    class DBEntry
     {
         public DBEntry(string DocTitle, string DocBody, string DocAuthor, int DocID = 0)
         {
@@ -66,7 +66,12 @@ namespace TPKC
         }
         public DBEntry(string JSON)
         {
-            this = JsonConvert.DeserializeObject<DBEntry>(JSON);
+            var x = JsonConvert.DeserializeObject<DBEntry>(JSON);
+            ID = x.ID;
+            Author = x.Author;
+            Body = x.Body;
+            Title = x.Title;
+
             if (ID < 1)
                 ID = GetNextID();
         }
@@ -76,7 +81,7 @@ namespace TPKC
             return 0;
         }
 
-        int e_id = 0;
+        private int e_id = 0;
 
         public int ID {
             get {
@@ -92,6 +97,8 @@ namespace TPKC
             {
                 if (value > 0)
                     e_id = value;
+                else
+                    e_id = GetNextID();
             }
         } // the id
 
@@ -107,10 +114,10 @@ namespace TPKC
                 {
                     CMD = Commands.Check,
                     VER = 0,
-                    Data = this,
-                    DOCS = ID
+                    Data_s = this,
+                    DOCS_s = ID
                 };
-                return new Packed(new Server("http://localhost/").SendJSON(packed.ToString())).CheckResponce;
+                return !new Packed(new Server("http://localhost/").SendJSON(packed.ToString())).CheckResponce_s;
             }
         } // cheks agents server if the docs are the same
 

@@ -20,7 +20,7 @@ namespace TPKC.API
 
         static Server server = new Server("https://localhost");
 
-        public static void AddtoBD(DBEntry doc)
+        private static void AddtoBD(DBEntry doc)
         {
             db.AddDBentry(doc);
         }
@@ -53,17 +53,7 @@ namespace TPKC.API
 
             foreach (DBEntry entry in packed.Data)
             {
-                bool save = true;
-                foreach (DBEntry intent in DBEntries)
-                {
-                    if (entry.Equals(intent))
-                    {
-                        save = false;
-                        break;
-                    }
-                }
-                if (save)
-                    AddtoBD(entry);
+                AddtoBD(entry);
             }
         }
     }
