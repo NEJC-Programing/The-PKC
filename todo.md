@@ -1,5 +1,5 @@
 # todo
-* make gui
+* make gui [ ]
     1. fix sliders [ ]
     2. add auto complet, spell check and styling for the editro [ ]
     3. make the broweser stay at the place of editing or use js to change page [X]
@@ -15,11 +15,11 @@
     > ### the browers is cefsharp
     > ### use any spell check lib perfuribly a google one
 
-* api lib
+* api lib [X]
 	 1. make the local database work with new docs [X]
 	 2. make a sync function [X]
 	 3. make it work with the server [X]
 	 4. allow to work on private db [X]
 
-* Server
+* Server [ ]
 	1. make the sync function [ ]

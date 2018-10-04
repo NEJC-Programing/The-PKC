@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using CefSharp.WinForms;
 using CefSharp;
 using FastColoredTextBoxNS;
+using TPKC;
 
 
 namespace TPKC_GUI
@@ -119,7 +120,7 @@ namespace TPKC_GUI
                 browser.ShowDevTools();
             if (e.KeyCode == (Keys.S | Keys.LShiftKey | Keys.Control))
             {
-
+                
             }
             if (e.KeyCode == (Keys.S | Keys.Control))
             {
