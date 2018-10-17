@@ -75,10 +75,15 @@ namespace TPKC
             if (ID < 1)
                 ID = GetNextID();
         }
-        
+        private struct IDResponce
+        {
+            public int id;
+            public int ver;
+
+        }
         private int GetNextID()
         {
-            return 0;
+            return JsonConvert.DeserializeObject<IDResponce>(new System.Net.WebClient().DownloadString("http://localhost/nextid/")).id;
         }
 
         private int e_id = 0;
