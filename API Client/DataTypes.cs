@@ -54,6 +54,13 @@ namespace TPKC
     /// </summary>
     class DBEntry
     {
+        /// <summary>
+        /// make class object from params
+        /// </summary>
+        /// <param name="DocTitle">the document title</param>
+        /// <param name="DocBody">the document body</param>
+        /// <param name="DocAuthor">the document author</param>
+        /// <param name="DocID">the document id DONT USE UNLESS FROM SERVER</param>
         public DBEntry(string DocTitle, string DocBody, string DocAuthor, int DocID = 0)
         {
             
