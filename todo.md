@@ -15,7 +15,7 @@
     > ### the browers is cefsharp
     > ### use any spell check lib perfuribly a google one
 
-* api lib [X]
+* api lib [ ]
 	 1. make the local database work with new docs [X]
 	 2. make a sync function [X]
 	 3. make it work with the server [X]
