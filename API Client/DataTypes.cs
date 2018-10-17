@@ -142,7 +142,7 @@ namespace TPKC
         /// Checks if This Object is Equal to obj
         /// </summary>
         /// <param name="obj">the object to check</param>
-        /// <returns></returns>
+        /// <returns>True if equal or False if not</returns>
         public override bool Equals(object obj)
         {
             if (obj == null || GetType() != obj.GetType())
